@@ -34,6 +34,8 @@ NGS has revolutionized genomics by enabling applications such as whole-genome se
 
 **Reference:**  
 https://www.illumina.com/science/technology/next-generation-sequencing.html
+https://www.illumina.com/content/dam/illumina-marketing/documents/products/illumina_sequencing_introduction.pdf
+https://microbenotes.com/illumina-sequencing/
 
 ---
 
