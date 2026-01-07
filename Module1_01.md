@@ -258,18 +258,49 @@ FASTQ files are the primary output of next-generation sequencing (NGS) platforms
 Each sequencing read in a FASTQ file is represented by four lines:
 
 ```
-@SEQ_ID
-SEQUENCE
-+
-QUALITY_SCORES
+ @SEQ_ID
+ SEQUENCE
+ +
+ QUALITY_SCORES
 ```
 
+ 1. @SEQ_ID
+    A unique identifier for the read. May include information about the instrument, flow cell, and lane
 
+ 2. SEQUENCE
+    The nucleotide sequence (A, C, G, T, or N)
+ 
+ 3. +
+    Acts as a separator between the sequence and quality scores
 
-Quality scores are encoded using Phred scores.
+ 4. QUALITY_SCORES
+    Encodes the quality of each base in the sequence
+    Each character corresponds to a base in the sequence line
 
-Tool for QC:  
-FastQC – https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+📌 The length of the QUALITY_SCORES line is always equal to the length of the SEQUENCE line.
+
+**Base Quality Scores and Phred Encoding**
+
+Quality scores in FASTQ files are encoded using Phred scores, which represent the probability that a base call is incorrect.
+
+   Q = Phred quality score
+   P = probability that the base call is wrong
+
+| Phred Score | Error Probability | Base Call Accuracy |
+| ----------- | ----------------- | ------------------ |
+| 10          | 1 in 10           | 90%                |
+| 20          | 1 in 100          | 99%                |
+| 30          | 1 in 1000         | 99.9%              |
+| 40          | 1 in 10,000       | 99.99%             |
+
+📌 Higher Phred scores indicate greater confidence in the base call.
+
+In FASTQ files, Phred scores are stored as ASCII characters rather than numbers to reduce file size.
+Most modern sequencing data uses Phred+33 encoding
+Each character represents a numeric quality score + 33
+
+Reference:
+https://en.wikipedia.org/wiki/FASTQ_format
 
 ---
 
