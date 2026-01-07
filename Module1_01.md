@@ -32,13 +32,6 @@ Key characteristics of NGS:
 
 NGS has revolutionized genomics by enabling applications such as whole-genome sequencing (WGS), whole-exome sequencing (WES), transcriptomics, metagenomics, and single-cell analysis.
 
-**Reference:**  
-https://www.illumina.com/science/technology/next-generation-sequencing.html
-
-https://www.illumina.com/content/dam/illumina-marketing/documents/products/illumina_sequencing_introduction.pdf
-
-https://microbenotes.com/illumina-sequencing/
-
 ---
 
 ### 1.2 Common NGS Platforms
@@ -51,6 +44,13 @@ https://microbenotes.com/illumina-sequencing/
 
 Illumina platforms dominate clinical genomics due to their low error rates and extensive validation.
 
+**Reference:**  
+https://www.illumina.com/science/technology/next-generation-sequencing.html
+
+https://www.illumina.com/content/dam/illumina-marketing/documents/products/illumina_sequencing_introduction.pdf
+
+https://microbenotes.com/illumina-sequencing/
+
 ---
 
 ## 2. DNA-seq Workflow
@@ -60,13 +60,37 @@ DNA sequencing is used to identify genomic variants such as SNPs, insertions/del
 ### 2.1 DNA-seq Workflow Overview
 
 1. **Sample collection**
-2. **DNA extraction**
-3. **Library preparation**
-   - Fragmentation
-   - Adapter ligation
-4. **Sequencing**
-5. **Base calling & demultiplexing**
-6. **Bioinformatics analysis**
+   Collect tissue, blood, cells, or environmental samples
+   Preserve sample integrity (fresh, frozen, RNAlater)
+   Avoid contamination and degradation
+   
+3. **DNA extraction**
+   Extract DNA or RNA
+   Assess concentration (e.g., Qubit/Nanodrop)
+   Assess integrity (e.g., gel electrophoresis, Bioanalyzer)
+   
+4. **Library preparation**
+   Fragmentation of DNA by mechanical or enzymatic methods
+   Adapter ligation (to attach sequencing primers or barcodes)
+   PCR amplification
+   
+5. **Sequencing**
+   Load libraries onto sequencing platforms
+   Common platform Illumina
+   Generate millions of reads per sample
+   
+6. **Base calling & demultiplexing**
+   Convert raw instrument signals into nucleotide sequences
+   Output fastq files
+   
+10. **Bioinformatics analysis**
+    Raw data QC
+    Read preprocessing
+    Mapping reads to reference
+    Variant calling
+    Variant annotation
+    Interpretation and reporting
+    Data storage and reproducibility
 
 **Typical analysis flow:**
 
