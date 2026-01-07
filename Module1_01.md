@@ -92,18 +92,42 @@ DNA sequencing is used to identify genomic variants such as SNPs, insertions/del
     Interpretation and reporting
     Data storage and reproducibility
 
-**Typical analysis flow:**
-
 
 ---
 
 ### 2.2 Types of DNA-seq Experiments
+DNA sequencing experiments can be broadly classified based on how much of the genome is sequenced. The three most commonly used approaches are:
 
 - Whole Genome Sequencing (WGS)
 - Whole Exome Sequencing (WES)
 - Targeted gene panels
 
-Each differs in cost, coverage, and clinical applicability.
+Each approach differs in cost, genomic coverage, data complexity, and clinical applicability.
+
+1. Whole Genome Sequencing (WGS)
+
+**What is WGS?**
+
+Whole Genome Sequencing (WGS) sequences the entire genome, including:
+
+Protein-coding regions (exons)
+
+Non-coding regions (introns, intergenic regions)
+
+Regulatory elements (promoters, enhancers)
+
+Mitochondrial DNA
+
+In humans, this corresponds to ~3.2 billion base pairs.
+
+| Feature                | WGS                     | WES           | Targeted Panels    |
+| ---------------------- | ----------------------- | ------------- | ------------------ |
+| Genomic coverage       | Entire genome           | Exons only    | Selected genes     |
+| % of genome sequenced  | ~100%                   | ~1–2%         | <1%                |
+| Cost                   | High                    | Medium        | Low                |
+| Data volume            | Very large              | Moderate      | Small              |
+| Variant types detected | SNPs, indels, CNVs, SVs | SNPs, indels  | Mostly SNPs/indels |
+| Clinical use           | Advanced diagnostics    | Rare diseases | Routine testing    |
 
 **Reference:**  
 https://www.nature.com/articles/nrg2626
