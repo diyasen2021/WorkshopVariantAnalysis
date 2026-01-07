@@ -83,7 +83,7 @@ DNA sequencing is used to identify genomic variants such as SNPs, insertions/del
    Convert raw instrument signals into nucleotide sequences
    Output fastq files
    
-10. **Bioinformatics analysis**
+7. **Bioinformatics analysis**
     Raw data QC
     Read preprocessing
     Mapping reads to reference
@@ -91,7 +91,6 @@ DNA sequencing is used to identify genomic variants such as SNPs, insertions/del
     Variant annotation
     Interpretation and reporting
     Data storage and reproducibility
-
 
 ---
 
@@ -106,6 +105,7 @@ Each approach differs in cost, genomic coverage, data complexity, and clinical a
 
 1. **Whole Genome Sequencing (WGS)**
 
+   **What is WGS?**
    Whole Genome Sequencing (WGS) sequences the entire genome, including:
    Protein-coding regions (exons)
    Non-coding regions (introns, intergenic regions)
@@ -113,10 +113,77 @@ Each approach differs in cost, genomic coverage, data complexity, and clinical a
    Mitochondrial DNA
    In humans, this corresponds to ~3.2 billion base pairs.
 
-   WGS allows detection of:
+   **Allows detection of**
    SNPs and indels
    Copy number variations (CNVs)
    Structural variants (SVs)
+
+   **Advantages of WGS**
+   Unbiased genome-wide coverage
+   Best method for detecting structural variants
+   Suitable for rare disease discovery
+
+   **Limitations**
+   Highest cost among DNA-seq methods
+   Large data storage and computational requirements
+   More complex variant interpretation
+   Many variants of unknown significance (VUS)
+
+📌 WGS is powerful but not always necessary for routine diagnostics.
+
+2. **Whole Exome Sequencing (WES)**
+
+   **What is WES?**
+   Whole Exome Sequencing targets only the exonic (protein-coding) regions of the genome.
+   Exons make up ~1–2% of the human genome
+   ~85% of known disease-causing variants lie in exons
+   DNA is fragmented
+   Exonic regions are enriched using capture probes
+   Only captured regions are sequenced
+
+   **Allows detection of**
+   What questions does WES answer?
+   SNPs and indels
+   Variants affecting protein function
+
+   **Advantages**
+   Lower cost than WGS
+   Reduced data size
+   Higher coverage of coding regions
+   Easier interpretation than WGS
+   Mendelian disease mutations
+
+   **Limitations**
+   Misses non-coding variants
+   Limited detection of structural variants
+   Uneven coverage due to capture bias
+   Cannot detect variants outside targeted exons
+
+📌 WES offers a balance between coverage and cost.
+
+3. **Targeted Gene Panels**
+
+   **What are targeted gene panels?**
+   Targeted panels sequence a predefined set of genes associated with a specific disease or phenotype.
+   Examples include cancer panels, cardiac disease panels, neurological disorder panels
+   Capture or amplify only selected genes
+   Sequence at very high depth
+
+   **Allows detection of**
+
+   **Advantages**
+   Lowest cost
+   Very high coverage (deep sequencing)
+   Fast turnaround time
+   Simplified analysis and interpretation
+
+   **Limitations**
+   Limited to known genes
+   Cannot discover novel disease genes
+   Requires frequent panel updates
+
+📌 Panels are ideal when the clinical question is well defined.
+   
 
 | Feature                | WGS                     | WES           | Targeted Panels    |
 | ---------------------- | ----------------------- | ------------- | ------------------ |
@@ -126,6 +193,17 @@ Each approach differs in cost, genomic coverage, data complexity, and clinical a
 | Data volume            | Very large              | Moderate      | Small              |
 | Variant types detected | SNPs, indels, CNVs, SVs | SNPs, indels  | Mostly SNPs/indels |
 | Clinical use           | Advanced diagnostics    | Rare diseases | Routine testing    |
+
+
+   **Choosing the Right Approach**
+
+   The choice of DNA-seq method depends on:
+   Clinical or research question
+   Budget and turnaround time
+   Need for novel variant discovery
+   Data analysis and storage capacity
+
+📌 More sequencing is not always better — the best approach is the one that answers the question effectively.
 
 **Reference:**  
 https://www.nature.com/articles/nrg2626
