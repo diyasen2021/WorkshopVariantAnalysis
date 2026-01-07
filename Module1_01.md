@@ -210,7 +210,6 @@ https://www.nature.com/articles/nrg2626
 
 ---
 
-
 ## 3. Clinical vs Research Genomics Pipelines
 
 ### 3.1 Clinical Genomics Pipelines
@@ -346,22 +345,13 @@ https://samtools.github.io/hts-specs/SAMv1.pdf
 BAM is the binary, compressed version of SAM. It contains the exact same alignment information but stored in a space-efficient binary format.
 
 **Key features of BAM file**
-Smaller file size than SAM
-Can be indexed for fast access
-Required for visualization tools (e.g., IGV, JBrowse)
-Standard for real analysis pipelines due to speed and efficiency
-Can be indexed (.bai)
-Allows instant jumping to any genomic region (e.g., chr7:140453136)
+- Smaller file size than SAM
+- Required for visualization tools (e.g., IGV, JBrowse)
+- Standard for real analysis pipelines due to speed and efficiency
+- Can be indexed (.bai) for fast access
 
 
-Both SAM and BAM Contain:
-
-Alignment position
-Mapping quality
-Read flags (encoded read properties)
-CIGAR strings
-Optional tags (e.g., NM, AS, MD) with additional metadata
-
+Differences between SAM and BAM files
 
 | Feature      | SAM                 | BAM                      |
 |--------------|----------------------|---------------------------|
@@ -376,27 +366,49 @@ Optional tags (e.g., NM, AS, MD) with additional metadata
 
 ---
 
-## 4.3 VCF (Variant Call Format)
+4.3. **VCF (Variant Call Format)**
 
-VCF files store genomic variants and genotypes.
+VCF is a human‑readable, tab‑delimited text format used to store genetic variants identified from sequencing data. It combines both variant‑level information (e.g., chromosome, position, alleles) and sample‑level genotype data. 
 
-Example:
+**Key features of VCF file**
+- Stores variant records, one per line
+- Contains header lines (starting with ##) describing:
+   - Reference genome
+   - Annotation fields
+   - Variant filters
+   - FORMAT field definitions
+- Contains a main header line (starting with #CHROM) listing column names
+- Supports multi‑sample variant data in one file
+- Can be indexed (.tbi, .csi) for rapid random access
+- Used extensively in clinical genomics
 
-chr1 12345 . A G 99 PASS DP=100 GT 0/1
+**What are VCF files used for**
 
-
-Used extensively in clinical genomics.
+- Storing SNPs, indels, and structural variants
+- Variant filtering
+- Variant annotation (clinical + functional)
+- Reporting variants in clinical genomics
+- Multi‑sample comparison in population studies
 
 Specification:  
 https://samtools.github.io/hts-specs/VCFv4.3.pdf
 
 ---
 
-## 4.4 GTF and GFF
+4.4 **GTF and GFF Genome Annotation Files**
 
-Annotation formats describing genes, transcripts, and genomic features.
+GTF is a human‑readable, tab‑delimited text format used to describe gene structures and genomic features such as genes, transcripts, exons, start codons, UTRs, etc.
+It is widely used in RNA‑seq pipelines for read counting (e.g., with featureCounts or HTSeq) and understanding gene models.
 
-Used in RNA-seq and variant annotation.
+**Key features of GTF file**
+- Text-based, tab‑delimited format
+- Describes genomic features and gene annotations
+- Used to define:
+   - Gene boundaries
+   - Transcript structure
+   - Exons, CDS, UTRs
+- Contains 9 columns, with the last column (attributes) in a structured key–value format
+- Compatible with most RNA‑seq workflows
 
 Ensembl guide:  
 https://useast.ensembl.org/info/website/upload/gff.html
