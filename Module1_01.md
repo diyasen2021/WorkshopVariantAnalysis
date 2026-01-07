@@ -252,14 +252,18 @@ Understanding genomics file formats is essential for both analysis and interpret
 
 ## 4.1 FASTQ
 
-FASTQ files store raw sequencing reads along with base quality scores.
+FASTQ files are the primary output of next-generation sequencing (NGS) platforms. They store raw sequencing reads along with a measure of confidence for each base call, known as base quality scores. FASTQ files are typically the starting point for all downstream bioinformatics analyses.
 
-Structure:
+**What Does a FASTQ File Contain?**
+Each sequencing read in a FASTQ file is represented by four lines:
 
+```
 @SEQ_ID
 SEQUENCE
 +
 QUALITY_SCORES
+```
+
 
 
 Quality scores are encoded using Phred scores.
