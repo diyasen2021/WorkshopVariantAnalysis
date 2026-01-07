@@ -258,13 +258,23 @@ FASTQ files are the primary output of next-generation sequencing (NGS) platforms
 Each sequencing read in a FASTQ file is represented by four lines:
 
 ```
- @SEQ_ID
- SEQUENCE
- +
- QUALITY_SCORES
+@READ001 Sample1
+ACTGATCGATCGTTAGCTAGCTAGCTAGCTA
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+
+@READ002 Sample1
+TTCGATCGATCGATACGATCGATCGATCGA
++
+FFFFFF:FFFFFFFFFFFFFFFFFFF:FFFF
+
+@READ003 Sample1
+GGGATCGATCGATCGGATATATCGCGTATA
++
+FFFDDDAAADDDFFFFFDDDDFFFDDDAAA
 ```
 
- 1. @SEQ_ID
+ 1. @READ001
     A unique identifier for the read. May include information about the instrument, flow cell, and lane
 
  2. SEQUENCE
@@ -306,17 +316,63 @@ https://en.wikipedia.org/wiki/FASTQ_format
 
 ## 4.2 SAM and BAM
 
-- **SAM:** Sequence Alignment Map (text)
-- **BAM:** Binary version of SAM (compressed)
+1. **SAM:** Sequence Alignment Map (text)
+SAM is a human‑readable, tab‑delimited text format that stores alignment information for each sequencing read. Because it is text-based, it is easy to inspect manually and suitable for teaching and debugging.
 
-Contains:
-- Alignment position
-- Mapping quality
-- Read flags
-- Optional tags
+**Key features of SAM file**
+ - Stores one read per line
+ - Contains header lines for
+      - reference genome,
+      - read groups,
+      - alignment parameters
+- Contains alignment records describing each read and how it maps
+
+**Core Columns in SAM file (Mandatory Fields)**
+   QNAME – Read name
+   FLAG – Integer representing read properties (e.g., paired, mapped, reversed)
+   RNAME – Reference chromosome read was aligned to
+   POS – Starting position of alignment
+   MAPQ – Mapping quality (confidence of alignment)
+   CIGAR – How the read aligns (matches, insertions, deletions)
+   RNEXT / PNEXT – Mate information (paired-end)
+   TLEN – Template length (paired-end)
+   SEQ – The read sequence
+   QUAL – Base quality scores
 
 Specification:  
 https://samtools.github.io/hts-specs/SAMv1.pdf
+
+2. **BAM (Binary Alignment Map — compressed binary format)**
+BAM is the binary, compressed version of SAM. It contains the exact same alignment information but stored in a space-efficient binary format.
+
+**Key features of BAM file**
+Smaller file size than SAM
+Can be indexed for fast access
+Required for visualization tools (e.g., IGV, JBrowse)
+Standard for real analysis pipelines due to speed and efficiency
+Can be indexed (.bai)
+Allows instant jumping to any genomic region (e.g., chr7:140453136)
+
+
+Both SAM and BAM Contain:
+
+Alignment position
+Mapping quality
+Read flags (encoded read properties)
+CIGAR strings
+Optional tags (e.g., NM, AS, MD) with additional metadata
+
+
+| Feature      | SAM                 | BAM                      |
+|--------------|----------------------|---------------------------|
+| Format       | Text                 | Binary                    |
+| Human-readable | Yes                | No                        |
+| File size    | Large                | Small                     |
+| Speed        | Slow to process      | Very fast                 |
+| Indexing     | No                   | Yes (.bai)                |
+| Used for     | Debugging, teaching  | Real analysis workflows   |
+
+📌 SAM is for readability; BAM is for real analysis.
 
 ---
 
