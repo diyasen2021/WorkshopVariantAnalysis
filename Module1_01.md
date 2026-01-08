@@ -413,6 +413,19 @@ It is widely used in RNA‑seq pipelines for read counting (e.g., with featureCo
 Ensembl guide:  
 https://useast.ensembl.org/info/website/upload/gff.html
 
+GFF (versions 2 and 3) is a flexible, tab‑delimited annotation format that describes genomic features across any organism.
+GFF3 is the modern standard and uses a structured, hierarchical system to represent genes, transcripts, and exons.
+
+**Key features of GFF file**
+- Similar to GTF but more general and more flexible
+- Uses 9 columns like GTF
+- Attributes follow a tag=value structure (GFF3 uses semicolon-separated key-value pairs)
+- More widely used in non‑human genomes
+- Many genome browsers and annotation tools prefer GFF3
+
+Specification:
+https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
+
 ---
 
 ## 4.5 BED
