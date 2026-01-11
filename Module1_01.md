@@ -444,31 +444,94 @@ https://genome.ucsc.edu/FAQ/FAQformat.html
 
 ## 5. Reference Genomes and Annotations
 
-### 5.1 Reference Genomes
+### 5.1 Reference Genomes and Annotations
 
-A reference genome is a representative DNA sequence used for read alignment and variant calling.
+What is a reference genome?
+A reference genome is a curated, representative DNA sequence used as a coordinate system for aligning sequencing reads and reporting genomic features and variants.
 
-Common human references:
-- GRCh38 (current standard)
-- GRCh37 (legacy)
+In DNA-seq analysis, all downstream steps—alignment, variant calling, annotation, and interpretation—depend on the reference genome used.
 
-Sources:
-- NCBI Genome – https://www.ncbi.nlm.nih.gov/genome
-- Ensembl – https://www.ensembl.org
+Sequencing reads are mapped to this reference to identify differences such as:
 
----
+- Single nucleotide variants (SNVs)
 
-### 5.2 Annotations
+- Insertions and deletions (INDELs)
 
-Annotations provide biological meaning to genomic coordinates.
+- Structural variants
 
-Include:
-- Gene models
-- Transcripts
-- Functional elements
+- Copy number changes
 
-Tools like UCSC Genome Browser allow interactive exploration:
-https://genome.ucsc.edu
+📌 Key idea: A variant is always defined relative to a reference genome.
+
+| Reference         | Description                                      | Status                                  |
+| ----------------- | ------------------------------------------------ | --------------------------------------- |
+| **GRCh37 / hg19** | Older human reference genome                     | Still widely used in clinical pipelines |
+| **GRCh38 / hg38** | Updated human reference with improved assemblies | Current recommended standard            |
+| **T2T-CHM13**     | Telomere-to-telomere complete genome             | Research use, emerging adoption         |
+
+
+🔗 Genome Reference Consortium:
+https://www.ncbi.nlm.nih.gov/grc
+
+🔗 UCSC Genome Browser assemblies:
+https://genome.ucsc.edu/cgi-bin/hgGateway
+
+**Why Reference Choice Matters**
+
+- Read alignment accuracy
+
+- Variant coordinates
+
+- Gene annotations
+
+Clinical interpretation
+
+Examples:
+
+A variant at chr7:140453136 in GRCh37 will have a different coordinate in GRCh38
+
+Clinical databases (ClinVar, gnomAD) are reference-specific
+
+Mixing references leads to annotation errors ❌
+
+⚠️ Always ensure alignment, variant calling, annotation databases, and clinical interpretation use the same reference build.
+
+**What Are Genome Annotations?**
+
+While the reference genome provides the sequence, annotations describe:
+
+- Where genes are located
+
+- How genes are structured
+
+- Which regions are functional
+
+
+Annotations are essential for answering questions like:
+
+Is this variant in a gene?
+
+Does it affect protein coding?
+
+Is it in a regulatory region?
+
+Types of Genomic Annotations
+1. Gene Models
+
+Define the genomic locations of genes:
+
+Gene start and end
+
+Strand orientation (+ / −)
+
+
+Common sources:
+
+🔗 GENCODE: https://www.gencodegenes.org
+
+🔗 RefSeq: https://www.ncbi.nlm.nih.gov/refseq
+
+🔗 Ensembl: https://www.ensembl.org
 
 ---
 
