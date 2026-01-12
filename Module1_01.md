@@ -447,7 +447,7 @@ https://genome.ucsc.edu/FAQ/FAQformat.html
 ### 5.1 Reference Genomes and Annotations
 
 What is a reference genome?
-A reference genome is a curated, representative DNA sequence used as a coordinate system for aligning sequencing reads and reporting genomic features and variants.
+A reference genome is a curated, **representative** DNA sequence used as a coordinate system for aligning sequencing reads and reporting genomic features and variants. Its not built from a single individual, rather from multiple individuals.
 
 In DNA-seq analysis, all downstream steps—alignment, variant calling, annotation, and interpretation—depend on the reference genome used.
 
@@ -460,6 +460,13 @@ Sequencing reads are mapped to this reference to identify differences such as:
 - Structural variants
 
 - Copy number changes
+
+**How is a reference genome created?**
+
+- DNA is pooled from multiple individuals
+- WGS sequencing is done
+- Assembly of genome
+- Consensus sequence is built
 
 📌 Key idea: A variant is always defined relative to a reference genome.
 
@@ -484,13 +491,33 @@ https://genome.ucsc.edu/cgi-bin/hgGateway
 
 - Gene annotations
 
-Clinical interpretation
+**Clinical interpretation**
 
-Examples:
+Clinical variant example: EGFR L858R (lung cancer)
 
-A variant at chr7:140453136 in GRCh37 will have a different coordinate in GRCh38
+EGFR L858R is a well-known activating somatic mutation in non-small cell lung cancer (NSCLC).
+It predicts sensitivity to EGFR tyrosine kinase inhibitors (e.g. erlotinib, gefitinib, osimertinib).
 
+The same variant in two genome builds
+Variant description (protein level)
+
+Gene: EGFR
+
+Transcript: NM_005228.5
+
+cDNA: c.2573T>G
+
+Protein: p.Leu858Arg (L858R)
+
+| Genome build      | Coordinate      | Variant |
+| ----------------- | --------------- | ------- |
+| **GRCh37 (hg19)** | chr7:55,259,515 | T > G   |
+| **GRCh38 (hg38)** | chr7:55,086,724 | T > G   |
+
+
+This biological change is identical, regardless of genome build.
 Clinical databases (ClinVar, gnomAD) are reference-specific
+
 
 Mixing references leads to annotation errors ❌
 
